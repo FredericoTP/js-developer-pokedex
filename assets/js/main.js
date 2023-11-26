@@ -20,7 +20,7 @@ function convertPokemonToLi(pokemon) {
                      alt="${pokemon.name}">
             </div>
 
-            <div id="pokemonDetails" style="display: none;">
+            <div id="pokemonDetails" class="${pokemon.type}" style="display: none;">
                 <span>Height: ${pokemon.height} dm</span>
                 <span>Weight: ${pokemon.weight} hg</span>
                 <span>Hp: ${pokemon.hp}</span>
