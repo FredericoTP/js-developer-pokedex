@@ -19,6 +19,17 @@ function convertPokemonToLi(pokemon) {
                 <img src="${pokemon.photo}"
                      alt="${pokemon.name}">
             </div>
+
+            <div id="pokemonDetails" class="${pokemon.type}" style="display: none;">
+                <span>Height: ${pokemon.height} dm</span>
+                <span>Weight: ${pokemon.weight} hg</span>
+                <span>Hp: ${pokemon.hp}</span>
+                <span>Attack: ${pokemon.attack}</span>
+                <span>Defense: ${pokemon.defense}</span>
+                <span>SpcAtk: ${pokemon.spcAtk}</span>
+                <span>SpcDef: ${pokemon.spcDef}</span>
+                <span>Speed: ${pokemon.speed}</span>
+            </div>
         </li>
     `
 }
@@ -45,3 +56,13 @@ loadMoreButton.addEventListener('click', () => {
         loadPokemonItens(offset, limit)
     }
 })
+
+document.getElementById('pokemonList').addEventListener('click', function (event) {
+    const pokemonItem = event.target.closest('.pokemon');
+    if (pokemonItem) {
+        const detailsDiv = pokemonItem.querySelector('#pokemonDetails');
+
+        detailsDiv.style.display = (detailsDiv.style.display === 'none') ? 'flex' : 'none';
+    }
+});
+

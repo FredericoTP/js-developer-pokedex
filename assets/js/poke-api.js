@@ -13,6 +13,19 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     pokemon.type = type
 
     pokemon.photo = pokeDetail.sprites.other.dream_world.front_default
+    
+    pokemon.height = pokeDetail.height
+    pokemon.weight = pokeDetail.weight
+
+    const stats = pokeDetail.stats.map((stat) => stat.base_stat)
+    const [hp, attack, defense, spcAtk, spcDef, speed] = stats;
+    
+    pokemon.hp = hp
+    pokemon.attack = attack
+    pokemon.defense = defense
+    pokemon.spcAtk = spcAtk
+    pokemon.spcDef = spcDef
+    pokemon.speed = speed
 
     return pokemon
 }
